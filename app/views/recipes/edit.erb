@@ -1,0 +1,15 @@
+<h1>Edit Recipe</h1>
+
+<% if @recipe.errors.any? %>
+  <ul>
+    <% @recipe.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <%end%>
+  </ul>
+<%end%>
+
+
+<%= form_for @recipe do |f|%>
+  <%=render partial: 'form', locals: {f: f}%>
+    <%=f.submit "Submit Recipe"%>
+<%end%>

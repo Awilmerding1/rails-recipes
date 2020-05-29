@@ -1,0 +1,7 @@
+<%= form_for @ingredient do |f| %>
+  <%= f.label 'Ingredient Name' %><br>
+  <%=hidden_field_tag "ingredient[recipe_ids][]", @recipe.id if @recipe %>
+    <%= f.text_field :name, class: @ingredient.errors.any? ? 'field_with_errors' : "" %><br>
+
+  <%= f.submit "Submit Ingredient" %>
+<% end %>

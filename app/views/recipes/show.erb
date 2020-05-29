@@ -1,0 +1,27 @@
+
+<% if @recipe.errors.any? %>
+  <ul>
+    <% @recipe.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <%end%>
+  </ul>
+<%end%>
+
+
+
+<h1><%=@recipe.name%></h1>
+<h3>Description: <%=@recipe.description%> </h3>
+<h3>Ingredients</h3>
+
+
+<%=render partial: 'ingredients/ingredients', locals: {ingredients: @recipe.ingredients}%>
+
+
+
+
+<br>
+
+
+<p><%=link_to 'Edit Recipe', edit_recipe_path(@recipe)%></p><br>
+
+<%=button_to "Delete", @recipe, method: :delete %>
